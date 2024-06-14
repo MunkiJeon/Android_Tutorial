@@ -50,9 +50,18 @@ fun main() {
     while (true){
         try {
             order = readln().toInt()
-            if (order-1 <0)  print(menu.first.toList()[0])
-            else if()
-            else print(menu.second.toList()[order-1])
+            if (order.equals(0) && orderPageNum.equals(0)) {
+                print("키오스크를 종료합니다.")
+                break
+            }
+            else if(order-1 <0 && !orderPageNum.equals(0)){
+                orderPageNum = 0
+                print(menu.first.toList()[orderPageNum])
+            }
+            else {
+                orderPageNum = order-1
+                print(menu.second.toList()[orderPageNum])
+            }
         }
         catch (e: NumberFormatException) { print("\n숫자로만 입력 해주세요\n번호 입력>> ")}
         catch (e:IndexOutOfBoundsException){ print("\n제시된 숫자 중에 선택해 주세요\n번호 입력>> ")}
