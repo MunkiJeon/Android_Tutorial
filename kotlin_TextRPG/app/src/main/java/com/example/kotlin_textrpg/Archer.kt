@@ -1,13 +1,15 @@
 package com.example.kotlin_textrpg
 
-class Archer {
+class Archer : Character {
     var name:String
     var age:Int
     var gender:String
     var money:Int
     var hp:Int
+    var weapons:MutableList<String>
 
     constructor(_name:String, _age:Int, _gender:String, _money:Int, _hp:Int) {
+        weapons = mutableListOf<String>()
         name = _name
         age = _age
         gender = _gender
@@ -16,7 +18,7 @@ class Archer {
         println("${name}궁수 생성")
     }
 
-    fun attack() {
+    override fun attack() {
         println("활쏘기!")
     }
 
