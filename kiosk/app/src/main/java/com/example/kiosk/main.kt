@@ -6,64 +6,91 @@ package com.example.kiosk
 : 메뉴 선택시 상세 메뉴화면으로 이동 [v]
 > 메뉴판 ->
     01.버거->
-        치킨
-        포크
-        비프
-        치즈
+        치킨 3.0
+        포크 4.0
+        비프 6.0
+        치즈 2.5
     02.스낵&4이드->
-        치즈스틱
-        감자튀김
-        너겟
-        스넥랩
+        치즈스틱 2.0
+        감자튀김 1.0
+        치킨너겟 1.5
+        스넥랩   2.5
     03.음료&커픠->
-        사이다
-        콜라
-        아메리카노
-        라떼
+        사이다     1.0
+        콜라       1.0
+        아메리카노 1.5
+        라떼       1.5
 : 잘못된 번호 선택 시 예외처리[v]
 : 프로그램 종료을 위한 번호 정의[v]
 */
-fun main() {
-    //lv1
-    var orderPageNum = 0
-    var order = 0
+fun main() {// 숫자 입력 및 화면 전환 관련
 
-    var menu = Pair<Array<String>,Array<String>>(
-        //메뉴
-        arrayOf("----[메뉴판]----\n" +
-                "[1] 버거버거\n" +
-                "[2] 스낵&4이드\n" +
-                "[3] 음료&커픠\n" +
-                "---------------\n" +
-//                "[99] 장바구니" +
-                "[0] 취소" +
-                "번호 입력>> "),
-        //상세 메뉴
-        arrayOf("[1]. 치킨 버거 | W 3.0\n" + "[2]. 포크 버거 | W 4.0\n" + "[3]. 비프 버거 | W 5.0\n" + "[4]. 치즈 버거 | W 2.0\n" + "[0]. 뒤로\n" +
-                "번호 입력>> ",
-            "[1]. 치즈스틱 | W 2.0\n" + "[2]. 감자튀김 | W 1.0\n" + "[3]. 스낵랩 | W 2.5\n" + "[4]. 치킨너겟 | W 1.5\n" + "[0]. 뒤로\n" +
-                    "번호 입력>> ",
-            "[1]. 사이다 | W 1.0\n" + "[2]. 콜라 | W 1.0\n" + "[3]. 아메리카노 | W 1.5\n" + "[4]. 카페라떼 | W 1.5\n" + "[0]. 뒤로\n" +
-                    "번호 입력>> "))
 
-    print(menu.first.toList()[order])
+    print(Menu(0).strTrens(0))//초기화면
+    var category = 0
     while (true){
-        try {
-            order = readln().toInt()
-            if (order.equals(0) && orderPageNum.equals(0)) {
-                print("키오스크를 종료합니다.")
-                break
-            }
-            else if(order-1 <0 && !orderPageNum.equals(0)){
-                orderPageNum = 0
-                print(menu.first.toList()[orderPageNum])
-            }
-            else {
-                orderPageNum = order-1
-                print(menu.second.toList()[orderPageNum])
-            }
+        var orderNum = try { readLine()!!.toInt() }
+        catch (e: NumberFormatException) {
+            print("\n숫자로만 입력 해주세요\n번호 입력>> ")
+            continue
         }
-        catch (e: NumberFormatException) { print("\n숫자로만 입력 해주세요\n번호 입력>> ")}
-        catch (e:IndexOutOfBoundsException){ print("\n제시된 숫자 중에 선택해 주세요\n번호 입력>> ")}
+        catch (e: IndexOutOfBoundsException){
+            print("\n제시된 숫자 중에 선택해 주세요\n번호 입력>> ")
+            continue
+        }
+
+       when(orderNum as Int){
+            0->{
+                if (category == 0) {
+                    print("키오스크를 종료 합니다.")
+                    break
+                }
+                else{
+                    category = 0
+                    print( Menu(orderNum).strTrens(orderNum))
+                }
+            }
+            1->{
+                if (category == 0){
+                    category = orderNum
+                    print(Burger(category,orderNum).strTrens(orderNum))
+                }
+                else if (category == 99) {
+                    Cart().payment()
+                    break
+                }
+                else{ Burger(category,orderNum).addCart() }
+            }
+            2->{
+                if (category == 0){
+                    category = orderNum
+                    print( Snack(category,orderNum).strTrens(orderNum))
+                }
+                else if (category == 99){
+                    category = 0
+                    print( Menu(orderNum).strTrens(orderNum))
+                }
+                else{ Snack(category,orderNum).addCart() }
+            }
+            3->{
+                if (category == 0){
+                    category = orderNum
+                    print( Drink(category,orderNum).strTrens(orderNum))
+                }
+                else{ Drink(category,orderNum).addCart() }
+            }
+           4->{
+               if (category == 0){
+                   category = orderNum
+                   print( Drink(category,orderNum).strTrens(orderNum))
+               }
+               else{ Drink(category,orderNum).addCart() }
+           }
+            99->{
+                category = orderNum
+                Cart().checkCart()
+            }
+           else->{print("\n제시된 숫자 중에 선택해 주세요\n번호 입력>> ")}
+       }
     }
 }
