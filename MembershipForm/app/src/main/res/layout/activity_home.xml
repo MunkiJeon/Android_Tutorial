@@ -126,11 +126,12 @@
             android:id="@+id/lbtn_homeEnd"
             android:layout_width="369dp"
             android:layout_height="61dp"
+            android:layout_marginBottom="32dp"
             android:background="@drawable/btn_shape_01"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="638dp">
+            app:layout_constraintStart_toStartOf="parent">
 
             <ImageView
                 android:id="@+id/lbtn_homeImg"
