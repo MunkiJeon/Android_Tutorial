@@ -47,7 +47,7 @@
 
         <EditText
             android:id="@+id/et_supName"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:ems="10"
             android:hint="이름을 입력해 주세요."
@@ -55,7 +55,6 @@
             android:textColor="@color/white"
             android:textColorHint="@color/mango"
             android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_supNameText" />
 
@@ -63,7 +62,7 @@
             android:id="@+id/tv_supIdText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
             android:text="아이디"
             android:textColor="@color/white"
@@ -72,7 +71,7 @@
             app:layout_constraintEnd_toEndOf="@+id/et_supName"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/et_supName"
-            app:layout_constraintTop_toBottomOf="@+id/et_supName" />
+            app:layout_constraintTop_toBottomOf="@+id/tb_supMbtiEI" />
 
         <EditText
             android:id="@+id/et_supId"
@@ -121,7 +120,7 @@
             android:id="@+id/btn_supSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="32dp"
             android:text="회원가입"
             android:textColor="@color/white"
             android:textSize="20dp"
@@ -130,6 +129,149 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_supPw" />
 
+        <TextView
+            android:id="@+id/tv_supGen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="성별"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_supNameText"
+            app:layout_constraintStart_toEndOf="@+id/et_supName"
+            app:layout_constraintTop_toTopOf="@+id/tv_supNameText" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/et_supName"
+            app:layout_constraintStart_toStartOf="@+id/tv_supGen"
+            app:layout_constraintTop_toTopOf="@+id/et_supName">
+
+            <RadioButton
+                android:id="@+id/rb_supGenMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:selectAllOnFocus="true"
+                android:text="남성"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rb_supGenFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="여성"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_supMbti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="MBTI"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/et_supName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/et_supName"
+            app:layout_constraintTop_toBottomOf="@+id/et_supName" />
+
+        <TextView
+            android:id="@+id/tv_supAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나이"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+            app:layout_constraintStart_toStartOf="@+id/radioGroup"
+            app:layout_constraintTop_toTopOf="@+id/tv_supMbti" />
+
+        <NumberPicker
+            android:id="@+id/np_num"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="8dp"
+
+            android:background="@color/purple"
+            android:solidColor="@color/orange"
+            app:layout_constraintEnd_toEndOf="@+id/tv_supAge"
+            app:layout_constraintStart_toStartOf="@+id/tv_supAge"
+            app:layout_constraintTop_toTopOf="@+id/tb_supMbtiJP" />
+
+        <ToggleButton
+            android:id="@+id/tb_supMbtiEI"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:background="@color/white"
+            android:text="ToggleButton"
+            android:textColor="@color/purple"
+            android:textIsSelectable="false"
+            android:textOff="E"
+            android:textOn="I"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_supMbti" />
+
+        <ToggleButton
+            android:id="@+id/tb_supMbtiSN"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@color/white"
+            android:text="ToggleButton"
+            android:textColor="@color/purple"
+            android:textOff="S"
+            android:textOn="N"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tb_supMbtiEI"
+            app:layout_constraintStart_toEndOf="@+id/tb_supMbtiEI"
+            app:layout_constraintTop_toTopOf="@+id/tb_supMbtiEI"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ToggleButton
+            android:id="@+id/tb_supMbtiTF"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@color/white"
+            android:checked="false"
+            android:text="ToggleButton"
+            android:textColor="@color/purple"
+            android:textOff="T"
+            android:textOn="F"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tb_supMbtiSN"
+            app:layout_constraintStart_toEndOf="@+id/tb_supMbtiSN"
+            app:layout_constraintTop_toTopOf="@+id/tb_supMbtiSN"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ToggleButton
+            android:id="@+id/tb_supMbtiJP"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@color/white"
+            android:text="ToggleButton"
+            android:textColor="@color/purple"
+            android:textOff="J"
+            android:textOn="P"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tb_supMbtiTF"
+            app:layout_constraintStart_toEndOf="@+id/tb_supMbtiTF"
+            app:layout_constraintTop_toTopOf="@+id/tb_supMbtiTF"
+            app:layout_constraintVertical_bias="0.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
