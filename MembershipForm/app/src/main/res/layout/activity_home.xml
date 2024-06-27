@@ -26,6 +26,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@+id/lbtn_homeEnd"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,16 +37,16 @@
             android:id="@+id/tv_homeId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="아이디:"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tv_homeName"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_homeProfilePic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toEndOf="@+id/iv_homeProfilePic"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_homeProfilePic"
+            app:layout_constraintVertical_bias="0.0"
             app:layout_constraintVertical_chainStyle="spread" />
 
         <TextView
@@ -102,9 +103,8 @@
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
             app:layout_constraintEnd_toEndOf="@+id/tv_HomeGender"
-            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tv_HomeGender"
             app:layout_constraintTop_toBottomOf="@+id/tv_HomeGender" />
 
@@ -122,46 +122,15 @@
 <!--            app:layout_constraintEnd_toEndOf="parent"-->
 <!--            app:layout_constraintStart_toStartOf="parent" />-->
 
-        <ScrollView
-            android:id="@+id/scrollView2"
-            android:layout_width="320dp"
-            android:layout_height="330dp"
-            android:layout_marginTop="24dp"
-            android:elevation="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_homeProfilePic">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tv_pointlist"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="포인트 내역"
-                    android:textAlignment="center"
-                    android:textColor="@color/mango"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </LinearLayout>
-        </ScrollView>
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/lbtn_homeEnd"
             android:layout_width="369dp"
             android:layout_height="61dp"
-            android:layout_marginTop="32dp"
             android:background="@drawable/btn_shape_01"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scrollView2">
+            tools:layout_editor_absoluteY="638dp">
 
             <ImageView
                 android:id="@+id/lbtn_homeImg"
