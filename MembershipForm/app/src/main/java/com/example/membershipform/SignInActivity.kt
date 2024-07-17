@@ -80,7 +80,7 @@ class SignInActivity : AppCompatActivity() {
 
             if (et_signInId.text.isNotEmpty() && et_signInPw.text.isNotEmpty() && loginCheck) {
                 Toast.makeText(this, "로그인 성공!", Toast.LENGTH_SHORT).show()
-                startActivity(it_Home)
+//                startActivity(it_Home)
             } else {
                 Toast.makeText(this, "아이디/비밀번호를 확인해 주세요", Toast.LENGTH_SHORT).show()
             }
