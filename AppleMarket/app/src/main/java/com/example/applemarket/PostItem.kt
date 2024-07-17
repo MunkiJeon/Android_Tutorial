@@ -13,4 +13,5 @@ data class PostItem(
     var comment : String,
     var chat : Int = 0,
     var like : Int = 0,
+    var isLike : Boolean = false
 ):Parcelable

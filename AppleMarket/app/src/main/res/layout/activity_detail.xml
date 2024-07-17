@@ -171,12 +171,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:padding="16dp">
 
-        <ImageView
+        <ToggleButton
             android:id="@+id/detail_iv_like"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/heart_24"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/heart_selector"
 
+            android:textOff=""
+            android:textOn=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
