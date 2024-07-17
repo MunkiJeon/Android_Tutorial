@@ -8,52 +8,13 @@
     android:background="@color/gray"
     tools:context=".BenefitsActivity">
 
-    <ImageView
-        android:id="@+id/iv_logo"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:scaleType="fitStart"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/toss_logo_secondary_white" />
-
-    <ImageButton
-        android:id="@+id/ibtn_mappin"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="24dp"
-        android:background="#00FFFFFF"
-        android:padding="2dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toStartOf="@+id/ibtn_bell"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/iv_logo"
-        app:layout_constraintTop_toTopOf="@+id/iv_logo"
-        app:srcCompat="@drawable/icon_pin"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/ibtn_bell"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="24dp"
-        android:background="#00FFFFFF"
-        android:contentDescription="TODO"
-        android:padding="2dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/iv_logo"
-        app:srcCompat="@drawable/icon_bell" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintHeight_percent="0.89"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_logo">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ScrollView
             android:layout_width="match_parent"
