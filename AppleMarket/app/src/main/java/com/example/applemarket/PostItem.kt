@@ -10,8 +10,8 @@ data class PostItem(
     var address: String,
     var cost: Int,
     val seller: String,
-    var comment : String,
-    var chat : Int = 0,
-    var like : Int = 0,
-    var isLike : Boolean = false
-):Parcelable
+    var comment: String,
+    var chat: Int = 0,
+    var like: Int = 0,
+    var isLike: Boolean = false
+) : Parcelable

@@ -42,7 +42,7 @@ class DetailActivity : AppCompatActivity() {
 
         binding.detailIvLike.setOnClickListener {
             var isLike = binding.detailIvLike.isChecked
-            PostData.postLike(isLike,userData)
+            PostData.postLike(isLike, userData)
             if (isLike) {
                 Snackbar.make(
                     it,

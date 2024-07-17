@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             MaterialAlertDialogBuilder(this@MainActivity)
                 .setMessage("종료하시겠습니까??")
                 .setNegativeButton("취소") { dialog, which -> Log.d("cansel", "취소누름") }
-                .setPositiveButton("확인") { dialog, which ->finish() }
+                .setPositiveButton("확인") { dialog, which -> finish() }
                 .show()
         }
     }
@@ -169,6 +169,7 @@ class MainActivity : AppCompatActivity() {
         // 뒤로가기를 onBackPressedDispatcher를 통해 등록
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
     }
+
     override fun onResume() {
         super.onResume()
         adapter.notifyDataSetChanged()

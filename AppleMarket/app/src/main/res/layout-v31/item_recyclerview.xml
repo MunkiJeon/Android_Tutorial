@@ -4,28 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
     android:layout_marginBottom="1dp"
     android:background="@color/white"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="16dp">
 
     <ImageView
         android:id="@+id/iv_itemPic"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center_vertical"
-        android:clipToOutline="true"
         android:background="@drawable/image_shape"
+        android:clipToOutline="true"
 
         android:padding="8dp"
         android:scaleType="fitCenter"
         android:src="@drawable/sample1" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:orientation="vertical"
-        android:layout_marginLeft="8dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_itemTitle"
@@ -73,7 +73,8 @@
             android:src="@drawable/comment_alt_dots_24"
             app:layout_constraintBottom_toBottomOf="@+id/tv_chatNum"
             app:layout_constraintEnd_toStartOf="@+id/tv_chatNum"
-            app:layout_constraintTop_toTopOf="@+id/tv_chatNum"/>
+            app:layout_constraintTop_toTopOf="@+id/tv_chatNum" />
+
         <TextView
             android:id="@+id/tv_chatNum"
             android:layout_width="wrap_content"
@@ -82,7 +83,7 @@
             android:hint="00"
             app:layout_constraintBottom_toBottomOf="@+id/iv_itemLike"
             app:layout_constraintEnd_toStartOf="@+id/iv_itemLike"
-            app:layout_constraintTop_toTopOf="@+id/iv_itemLike"/>
+            app:layout_constraintTop_toTopOf="@+id/iv_itemLike" />
 
         <ImageView
             android:id="@+id/iv_itemLike"

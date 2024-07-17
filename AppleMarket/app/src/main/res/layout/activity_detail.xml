@@ -167,9 +167,9 @@
         android:id="@+id/detail_lo_lowBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:padding="16dp">
+        app:layout_constraintStart_toStartOf="parent">
 
         <ToggleButton
             android:id="@+id/detail_iv_like"
@@ -199,15 +199,15 @@
             android:layout_marginLeft="16dp"
             android:hint="000000원"
             android:textSize="30dp"
-            app:layout_constraintTop_toTopOf="@+id/detail_div_divider"
             app:layout_constraintBottom_toBottomOf="@+id/detail_div_divider"
-            app:layout_constraintStart_toEndOf="@+id/detail_div_divider"/>
+            app:layout_constraintStart_toEndOf="@+id/detail_div_divider"
+            app:layout_constraintTop_toTopOf="@+id/detail_div_divider" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="채팅 하기"
             android:backgroundTint="#D15500"
+            android:text="채팅 하기"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
