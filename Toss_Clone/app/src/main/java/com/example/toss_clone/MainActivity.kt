@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     //  by lazy = 최초로 사용될 때 초기화를 하는 "지연 초기화"를 의미
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val homeFragment by lazy { HomeFragment() }
-//    private val benefitsFragment by lazy { BenefitsFragment() }
+    private val benefitsFragment by lazy { BenefitsFragment() }
 //    private val tossPayFragment by lazy { TossPayFragment() }
 //    private val stockFragment by lazy { StockFragment() }
 //    private val allFragment by lazy { AllFragment() }
@@ -54,12 +54,10 @@ class MainActivity : AppCompatActivity() {
                     changeFragment(homeFragment)
                     true
                 }
-
-//                R.id.benefits -> {
-//                    var intentNav = Intent(this, BenefitsActivity::class.java)
-//                    startActivity(intentNav)
-//                    true
-//                }
+                R.id.benefits -> {
+                    changeFragment(benefitsFragment)
+                    true
+                }
 //
 //                R.id.pay -> {
 //                    var intentNav = Intent(this, TossPayActivity::class.java)

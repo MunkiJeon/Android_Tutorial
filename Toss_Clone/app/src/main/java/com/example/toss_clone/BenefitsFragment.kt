@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.toss_clone.databinding.FragmentBenefitsBinding
 import com.example.toss_clone.databinding.FragmentHomeBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -14,12 +15,12 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
+ * Use the [BenefitsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : Fragment() {
+class BenefitsFragment : Fragment() {
 
-    private var _binding : FragmentHomeBinding? = null
+    private var _binding : FragmentBenefitsBinding? = null
     private val binding get() = _binding!!
 
     // TODO: Rename and change types of parameters
@@ -39,20 +40,21 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
+        _binding = FragmentBenefitsBinding.inflate(inflater,container,false)
+        return inflater.inflate(R.layout.fragment_benefits, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        _binding.benefitsRvBenefitItem.apply {
+            this@BenefitsFragment
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -60,12 +62,12 @@ class HomeFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment MainFragment.
+         * @return A new instance of fragment BenefitsFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
+            BenefitsFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
