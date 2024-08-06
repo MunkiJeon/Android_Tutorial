@@ -1,5 +1,6 @@
 package com.example.toss_clone
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -41,18 +42,26 @@ class BenefitsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentBenefitsBinding.inflate(inflater,container,false)
-        return inflater.inflate(R.layout.fragment_benefits, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding.benefitsRvBenefitItem.apply {
+        var uri: Uri = Uri.parse("android.resource://" + requireContext().packageName + "/raw/semple")
+        binding.benefitsVvAd.setVideoURI(uri)
+        binding.benefitsRvBenefitItem.apply {
             this@BenefitsFragment
         }
+
     }
 
+    override fun onResume() {
+        super.onResume()
+        binding.benefitsVvAd.start()
+    }
     override fun onDestroyView() {
         super.onDestroyView()
+        binding.benefitsVvAd.stopPlayback()
         _binding = null
     }
     companion object {

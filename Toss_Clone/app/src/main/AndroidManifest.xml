@@ -13,18 +13,6 @@
         android:theme="@style/Theme.Toss_Clone"
         tools:targetApi="31">
         <activity
-            android:name=".AllActivity"
-            android:exported="false" />
-        <activity
-            android:name=".StockActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TossPayActivity"
-            android:exported="false" />
-        <activity
-            android:name=".BenefitsActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

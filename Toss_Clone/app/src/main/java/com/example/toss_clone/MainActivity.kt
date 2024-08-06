@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import androidx.fragment.app.setFragmentResult
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
@@ -52,6 +53,7 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.home -> {
                     changeFragment(homeFragment)
+
                     true
                 }
                 R.id.benefits -> {
@@ -60,23 +62,19 @@ class MainActivity : AppCompatActivity() {
                 }
 //
 //                R.id.pay -> {
-//                    var intentNav = Intent(this, TossPayActivity::class.java)
-//                    startActivity(intentNav)
+//                    changeFragment(TossPayFragment)
 //                    true
 //                }
 //
 //                R.id.stock -> {
-//                    var intentNav = Intent(this, StockActivity::class.java)
-//                    startActivity(intentNav)
+//                    changeFragment(stockFragment)
 //                    true
 //                }
 //
 //                R.id.all -> {
-//                    var intentNav = Intent(this, AllActivity::class.java)
-//                    startActivity(intentNav)
+//                    changeFragment(allFragment)
 //                    true
 //                }
-
                 else -> false
             }
         }

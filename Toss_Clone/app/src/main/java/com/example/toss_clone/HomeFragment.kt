@@ -9,7 +9,7 @@ import com.example.toss_clone.databinding.FragmentHomeBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
+private const val ARG_HOME_PARAM = "param1"
 private const val ARG_PARAM2 = "param2"
 
 /**
@@ -29,7 +29,7 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
+            param1 = it.getString(ARG_HOME_PARAM)
             param2 = it.getString(ARG_PARAM2)
         }
     }
@@ -45,7 +45,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        //TODO: 디테일 화면 만들고 데이터 넘기는 부분필요
     }
 
     override fun onDestroyView() {
@@ -67,7 +67,7 @@ class HomeFragment : Fragment() {
         fun newInstance(param1: String, param2: String) =
             HomeFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
+                    putString(ARG_HOME_PARAM, param1)
                     putString(ARG_PARAM2, param2)
                 }
             }
