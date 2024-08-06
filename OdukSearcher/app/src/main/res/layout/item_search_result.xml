@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/res_iv_thumbnail"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sampleprofile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/res_tv_site_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/res_iv_thumbnail"
+        app:layout_constraintStart_toStartOf="@id/res_iv_thumbnail"
+        app:layout_constraintTop_toBottomOf="@id/res_iv_thumbnail"
+        tools:text="제목" />
+
+    <TextView
+        android:id="@+id/res_tv_timestamp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/res_tv_site_name"
+        app:layout_constraintStart_toStartOf="@id/res_tv_site_name"
+        app:layout_constraintTop_toBottomOf="@id/res_tv_site_name"
+        tools:text="날짜" />
+
+    <ToggleButton
+        android:id="@+id/tb_bookmark"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/selector_toggle_favorite"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintEnd_toEndOf="@id/res_iv_thumbnail"
+        app:layout_constraintTop_toTopOf="@id/res_iv_thumbnail" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

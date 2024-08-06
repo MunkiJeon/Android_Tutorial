@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">OdukSearcher</string>
+    <string name="search_hint">검색어를 입력해주세요.</string>
+    <string name="search">검 색</string>
+    <string name="item_search_res">검색 결과</string>
+    <string name="shape_circle">OdukSearcher</string>
+    <string name="nav_search">검색 홈</string>
+    <string name="nav_bookmark">북마크</string>
+    <string name="thumbnail">제목</string>
+
+</resources>
