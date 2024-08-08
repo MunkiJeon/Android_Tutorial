@@ -16,3 +16,10 @@ data class VideoDocument(
     @SerializedName("url")
     val url: String?,
 )
+
+data class VideoResponse(
+    @SerializedName("documents")
+    val documents: List<VideoDocument>?,
+    @SerializedName("meta")
+    val meta: Meta?
+)

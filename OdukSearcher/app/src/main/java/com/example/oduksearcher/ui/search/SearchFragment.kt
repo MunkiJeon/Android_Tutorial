@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.activityViewModels
@@ -19,12 +20,11 @@ import com.example.oduksearcher.ui.bookmark.BookMarkViewModel
 import com.example.oduksearcher.ui.bookmark.BookMarkViewModelFactory
 import com.example.oduksearcher.databinding.FragmentSearchBinding
 import com.example.oduksearcher.ui.ListItem
-import com.example.oduksearcher.ui.recent_search.RecentSearchActivity
 import com.example.oduksearcher.ui.copy
 import com.example.oduksearcher.ui.find
 import com.example.oduksearcher.ui.isBookmarked
-import com.example.oduksearcher.ui.recent_search.loadSearchHistory
 import com.example.oduksearcher.util.GridSpacingItemDecoration
+import com.example.oduksearcher.util.hideKeyBoard
 import com.example.oduksearcher.util.px
 
 private const val SEARCH_TEXT = "search_text"
@@ -33,9 +33,6 @@ class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
-    private val recentSearchText by lazy {
-        loadSearchHistory(requireContext()).lastOrNull() ?: ""
-    }
     private val searchViewModel: SearchViewModel by viewModels<SearchViewModel> {
         SearchViewModelFactory()
     }
@@ -58,9 +55,8 @@ class SearchFragment : Fragment() {
     private val loadingItem = ListItem.LoadingItem(true) as ListItem
     private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
 
-    override fun onAttach(context: Context) {
+    override fun onAttach(context: Context) {//처음 화면 붙여질때
         super.onAttach(context)
-        searchViewModel.fetchSearchResult(recentSearchText)
         activityResultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
@@ -116,7 +112,20 @@ class SearchFragment : Fragment() {
     }
 
     private fun initView() = with(binding) {
-        etSearch.setText(recentSearchText)
+        btnSearch.setOnClickListener {//검색 눌렀을때
+            val searchText = etSearch.text.toString()
+            if (searchText.isNotEmpty()) {
+                requireContext().hideKeyBoard(btnSearch)
+
+                currentPage = 0
+                result.clear()
+                fetchNextPage()
+                return@setOnClickListener
+            }else{
+                Toast.makeText(requireContext(), "검색어를 입력해주세요.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         rvSearch.run {
             adapter = searchAdapter
             layoutManager = GridLayoutManager(requireContext(), 2).apply {
@@ -131,31 +140,22 @@ class SearchFragment : Fragment() {
             }
             addItemDecoration(GridSpacingItemDecoration(2, 16f.px))
         }
-        etSearch.setOnClickListener {
-            val intent = Intent(requireContext(), RecentSearchActivity::class.java).apply {
-                putExtra(
-                    SEARCH_TEXT,
-                    etSearch.text.toString()
-                )
-            }
-            activityResultLauncher.launch(intent)
-        }
         fabToTop.setOnClickListener { rvSearch.smoothScrollToPosition(0) }
     }
 
     private fun handleSubmitInput() = with(binding) {
         val searchText = etSearch.text.toString()
 
-        if (recentSearchText == searchText) return
         if (searchText.isNotEmpty()) {
             currentPage = 0
             result.clear()
             fetchNextPage()
+            Toast.makeText(requireContext(), "검색어를 입력해주세요.", Toast.LENGTH_SHORT).show()
             return
         }
     }
 
-    private fun fetchNextPage() = with(binding) {
+    private fun fetchNextPage() = with(binding) {//페이지 추가로딩
         searchAdapter.stopLoading()
         searchViewModel.fetchSearchResult(etSearch.text.toString(), ++currentPage)
     }
@@ -194,5 +194,5 @@ class SearchFragment : Fragment() {
                 }
             }
         })
-        }
+    }
 }

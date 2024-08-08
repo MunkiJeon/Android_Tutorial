@@ -20,3 +20,10 @@ data class ImageDocument(
     @SerializedName("width")
     val width: Int?
 )
+
+data class ImageResponse(
+    @SerializedName("documents")
+    val documents: List<ImageDocument>?,
+    @SerializedName("meta")
+    val meta: Meta?,
+)

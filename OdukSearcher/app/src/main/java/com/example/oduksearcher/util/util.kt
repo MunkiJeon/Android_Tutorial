@@ -18,7 +18,7 @@ fun String.toFormattedDatetime(): String {
         .appendPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
         .toFormatter()
     val localDateTime = LocalDateTime.parse(this, formatterBuilder) ?: LocalDateTime.now()
-    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
     return localDateTime.format(formatter)
 }
 
