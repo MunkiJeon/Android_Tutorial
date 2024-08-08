@@ -36,6 +36,7 @@ android {
     }
     buildFeatures{
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -46,13 +47,22 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.legacy.support.v4)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.viewpager2)
+
+    // retrofit
+    implementation(libs.gson)
+    implementation(libs.squareup.retrofit2)
+    implementation(libs.squareup.converter.gson)
+    implementation(libs.squareup.okhttp3)
+    implementation(libs.squareup.logging.interceptor)
+
+    // glide
+    implementation(libs.glide)
+    annotationProcessor(libs.compiler)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-    implementation ("androidx.viewpager2:viewpager2:1.0.0-alpha04")
 }

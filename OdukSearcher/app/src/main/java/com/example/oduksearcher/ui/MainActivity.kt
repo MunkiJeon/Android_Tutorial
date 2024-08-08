@@ -1,14 +1,13 @@
-package com.example.oduksearcher
+package com.example.oduksearcher.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
+import com.example.oduksearcher.R
 import com.example.oduksearcher.databinding.ActivityMainBinding
-import com.example.oduksearcher.ui.BookMarkFragment
-import com.example.oduksearcher.ui.HomeFragment
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
@@ -20,27 +19,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() = with(binding) {
-        replaceFragment(HomeFragment())
-        homeNavMain.setOnItemSelectedListener { item ->
+        vpMain.adapter = ViewPagerAdapter(this@MainActivity)
+        vpMain.isUserInputEnabled = false
+        vpMain.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                binding.bnMain.menu.getItem(position).isChecked = true
+            }
+        })
+        bnMain.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.item_search -> {
-                    replaceFragment(HomeFragment())
+                    vpMain.currentItem = 0
                     return@setOnItemSelectedListener true
                 }
-
                 R.id.item_bookmark -> {
-                    replaceFragment(BookMarkFragment())
+                    vpMain.currentItem = 1
                     return@setOnItemSelectedListener true
                 }
-
                 else -> return@setOnItemSelectedListener false
             }
         }
-    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.home_fl_fragment, fragment)
-            .commit()
     }
 }
